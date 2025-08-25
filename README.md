@@ -1,10 +1,10 @@
 
 # KC1 
 정리중
+![kc1_1](https://github.com/user-attachments/assets/64942d8b-203c-4bde-a683-5dbb7a1f0a8a)
+![kc1_2](https://github.com/user-attachments/assets/aedd0996-3a2f-4ef3-aa75-b99f5597805d)
 
-![[kc1_2.jpg]]
 
-![[kc1_1.jpg]]
 
 quantity 의 배열을 적용한 ZMK 기반 무선 스플릿 키보드.
 차이점은, 오른쪽 스페이스 키 좌측에 `ㅠ`(B) 키가 있다. 따라서 스플릿 키보드에서도 모음 ㅠ가 들어간 글자를 타이핑하기가 편하다. 
@@ -19,7 +19,8 @@ quantity 의 배열을 적용한 ZMK 기반 무선 스플릿 키보드.
 	![[Pasted image 20250826052134.png]]
 
 	- USB-C 커넥터 x2
-	  ![[Pasted image 20250826052846.png]]
+	  <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/858e42ca-3931-496c-8169-0bc173befa5e" />
+
 - **회로**
 	- 컨트롤러: Nice!Nano V2 호환 보드 x2
 	- 배터리: TW302030 x 2
