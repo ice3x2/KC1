@@ -38,3 +38,66 @@ quantity 의 배열을 적용한 ZMK 기반 무선 스플릿 키보드.
 	- 분할 인쇄된 오른쪽 키보드 부착용
 - **B7000 접착제**
 	- 스위치 부착 고정용
+
+
+## 초기화 및 빌드 
+
+KC1 ZMK 펌웨어를 빌드하기 위해서는 WSL2 환경에서 다음 과정을 수행합니다.
+
+### 1. WSL2 및 필수 패키지 설치
+Ubuntu WSL2 환경에서 다음을 실행합니다.
+
+```bash
+sudo apt update
+sudo apt install -y \
+  git cmake ninja-build gperf ccache dfu-util device-tree-compiler wget \
+  python3 python3-venv python3-pip pipx
+````
+
+> `pipx` 실행이 되지 않으면 PATH를 보강합니다.
+>
+> ```bash
+> echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+> source ~/.bashrc
+> ```
+
+### 2. pipx로 west 및 wheel 설치
+
+ZMK는 `west`라는 메타 빌드 도구를 사용합니다.
+
+```bash
+pipx install west
+pipx runpip west install --upgrade pip wheel
+```
+
+### 3. ZMK 초기화
+
+레포지토리 루트에서 `zmk` 디렉토리로 이동 후 초기화 스크립트를 실행합니다.
+
+```bash
+cd zmk
+./init.sh
+```
+
+### 4. Zephyr Python 의존성 설치
+
+Zephyr 스크립트에서 요구하는 패키지를 설치합니다.
+
+```bash
+pipx runpip west install -r ./zephyr/scripts/requirements.txt
+```
+
+### 5. 빌드
+
+이제 어떤 디렉토리에서든 실행 가능합니다.
+
+```bash
+./zmk/app/build.sh
+```
+
+생성물:
+
+* `zmk/app/zmk_left.uf2`
+* `zmk/app/zmk_right.uf2`
+
+```
